@@ -1,0 +1,258 @@
+/* Common Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.profile {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  margin-right: 10px;
+}
+
+.profile-name {
+  color: white;
+  font-weight: bold;
+  display: none;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(32, 29, 29);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.5px;
+  max-width: 90%;
+  font-size: 16px;
+}
+.popup-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.popup-message h2 {
+  font-size: 24px;
+}
+
+
+.clear-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.clear-button:hover {
+  background-color: darkred;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+
+/* Desktop and Tablet Styles */
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url('images/website_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  #original-number {
+    font-size: 120px;
+    color: white;
+    transition: color 0.5s ease;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .button {
+    background-color: violet;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 12px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: darkviolet;
+  }
+
+  .donate-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgb(119, 0, 255);
+    color: white;
+    border: none;
+    border-radius: 15%;
+    padding: 15px;
+    cursor: pointer;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+  body {
+    background-image: url('images/website_bg.jpg');
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center center; /* Center the background */
+    background-repeat: no-repeat;
+    overflow-x: hidden; /* Hide horizontal overflow if necessary */
+  }
+
+  .popup-message {
+    top: 40%; /* Adjust the vertical position for mobile */
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  #original-number {
+    font-size: 80px;
+    color: white;
+    transition: color 0.5s ease;
+  }
+
+  .button {
+    background-color: violet;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 12px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: darkviolet;
+  }
+  
+
+  .donate-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgb(119, 0, 255);
+    color: white;
+    border: none;
+    border-radius: 15%;
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    margin-right: 10px;
+  }
+
+  .profile-name {
+   display: none;
+  }
+
+  .profile:hover .profile-name {
+    display: block;
+  }
+}
+
+ .total-donated {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-weight: bold;
+  transition: color 0.5s ease;
+
+  #history-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    display: none;
+  }
+
+  .clear-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .clear-button:hover {
+    background-color: darkred;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+}

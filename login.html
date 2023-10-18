@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 400px;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title {
+            padding: 10px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .title h2 {
+            margin: 0;
+        }
+
+        .login-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+        }
+
+        .remember-me {
+            text-align: left;
+            width: 100%;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            color: #f00;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .login-container {
+                width: 100%;
+            }
+        }
+
+        /* Animation styles */
+        input[type="text"],
+        input[type="password"],
+        .remember-me,
+        button {
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        .remember-me:hover,
+        button:hover {
+            border-bottom: 2px solid #3498db;
+        }
+
+        button {
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2677ad;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="title">
+            <h2>Employee Login</h2>
+        </div>
+        <div class="login-content">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe"> <label for="rememberMe">Remember Me</label>
+            </div>
+            <button onclick="authenticate()">Login</button>
+        </div>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        function authenticate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var message = document.getElementById("message");
+
+            if (username === "user1" && password === "password1") {
+                message.innerText = "Login successful for User 1!";
+                message.style.color = "#00ff00"; // Green color
+                window.location.href = "user1-success.html";
+            } else if (username === "user2" && password === "password2") {
+                message.innerText = "Login successful for User 2!";
+                message.style.color = "#00ff00"; // Green color
+                window.location.href = "user2-success.html";
+            } else {
+                message.innerText = "Login failed. Please check your username and password.";
+                message.style.color = "#ff0000"; // Red color
+            }
+        }
+    </script>
+</body>
+
+</html>

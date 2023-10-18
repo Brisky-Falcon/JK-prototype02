@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JK Organization</title>
+    <link rel="icon" type="image/x-icon" href="images/JK_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.kuttu.css">
+</head>
+
+<body text="white">
+
+    <div id="popup-message" class="popup-message"></div>
+    <div class="profile">
+        <img src="images/profile_pic_kuttu.png" alt="Profile Picture">
+        <span class="profile-name">AYUSHMAN</span>
+    </div>
+    <div class="container">
+        <h1><span id="original-number">0</span> JKC</h1>
+        <div class="button-container">
+            <button class="button" onclick="deduct1000()">Schedule a meeting</button>
+            <button class="button" onclick="deduct5000()">Create an Event</button>
+            <button class="button" onclick="toggleCustom()">Custom</button>
+            <button class="button" onclick="viewHistory()" id="view-history">View History</button>
+            <button class="button" id="convert-button" onclick="convertToAC()">Convert JKC to AC</button>
+            <a href="chat.html"><button class="button">Chat</button></a>
+        </div>
+        <div id="ac-display" style="display: none;">
+            <h2><span id="ac-result">0</span> AC</h2>
+        </div>
+    </div>
+    <div id="history-popup" class="popup">
+        <h2>History</h2>
+        <button class="clear-button" onclick="clearHistory()">Clear History</button>
+        <div id="history-content">
+            <!-- History content will be displayed here -->
+        </div>
+        <span class="close-button" onclick="closeHistory()">&#10006;</span>
+    </div>
+    <div id="custom-popup" class="popup">
+        <h2>Custom</h2>
+        <div id="custom-content">
+            <input type="number" id="custom-amount" placeholder="Enter amount">
+            <button class="button" onclick="applyCustom()">Apply</button>
+        </div>
+        <span class="close-button" onclick="closeCustom()">&#10006;</span>
+    </div>
+    <button class="donate-button" onclick="showDonatePopup()">DONATE</button>
+    <div id="donate-popup" class="popup">
+        <h2>Donate</h2>
+        <div id="donate-content">
+            <input type="number" id="donate-amount" placeholder="Enter amount">
+            <button class="button" onclick="applyDonation()">Apply</button>
+        </div>
+        <span class="close-button" onclick="closeDonatePopup()">&#10006;</span>
+    </div>
+    <div id="total-donated" class="total-donated">
+        Total Donated: <span id="total-amount-donated">0</span> JKC
+    </div>
+    
+    <script src="script.kuttu.js"></script>
+   
+
+</body>
+</html>

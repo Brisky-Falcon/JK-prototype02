@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="chat_icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="chat.css">
+    <script src="chat.js"></script>
+    <title>Chat System</title>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chat Room</h2>
+        </div>
+        <div class="chat-messages-container">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="name-input" placeholder="Enter your name">
+            <input type="text" id="message-input" placeholder="Type your message">
+            <button id="send-button" class="mobile-show">
+                <img src="send.png" alt="Send" width="20" height="20">
+            </button>
+        </div>
+    </div>
+    
+    <script type="module">
+        
+        
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js';
+        import { getDatabase, ref, push, onChildAdded } from 'https://www.gstatic.com/firebasejs/9.2.0/firebase-database.js';
+
+
+
+        
+    const firebaseConfig = {
+    apiKey: "AIzaSyARXk0UD4pIfRUcgNdBc7XcflAgE9SuIPU",
+    authDomain: "jk-kuttu.firebaseapp.com",
+    databaseURL: "https://jk-kuttu-default-rtdb.firebaseio.com",
+    projectId: "jk-kuttu",
+    storageBucket: "jk-kuttu.appspot.com",
+    messagingSenderId: "862304596605",
+    appId: "1:862304596605:web:5175873d37abc0ac717714"
+    };
+       
+  
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const chatMessagesRef = ref(db, 'chat_messages');
+
+document.addEventListener('DOMContentLoaded', function () {
+    const nameInput = document.getElementById('name-input');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const chatMessages = document.getElementById('chat-messages');
+
+    sendButton.addEventListener('click', function () {
+        const name = nameInput.value;
+        const message = messageInput.value;
+
+        if (name && message) {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedTime = `${hours % 12 || 12}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+
+            const newMessage = {
+                name: name,
+                message: message,
+                time: formattedTime
+            };
+
+            push(chatMessagesRef, newMessage)
+                .then(() => {
+                    messageInput.value = ''; // Clear the message input
+                })
+                .catch(error => {
+                    console.error("Error sending message: " + error);
+                });
+        }
+    });
+
+    // Listen for new messages and update the chat interface
+    onChildAdded(chatMessagesRef, snapshot => {
+        const messageData = snapshot.val();
+        const messageElement = document.createElement('div');
+        messageElement.innerHTML = `<strong>${messageData.name}</strong> (${messageData.time}): ${messageData.message}`;
+        chatMessages.appendChild(messageElement);
+    });
+});
+
+    </script>
+</body>
+</html>

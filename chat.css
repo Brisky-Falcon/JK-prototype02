@@ -1,0 +1,82 @@
+body {
+    background-image: url('chat_bg.jpg'); /* Add the path to your background image */
+    background-size: cover; /* Adjust background size to cover the container */
+    background-position: center center; /* Center the background image */
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    background-image: url('container_bg.jpg'); /* Add the path to your background image */
+    background-size: cover; /* Adjust background size to cover the container */
+    background-position: center center; /* Center the background image */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Adjusted width to 80% of the viewport width */
+    height: 60%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.chat-header {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.chat-messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.chat-messages {
+    max-height: 100%;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+
+
+#send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Media query for smaller screens (mobile devices) */
+@media screen and (max-width: 600px) {
+    .chat-container {
+        width: 90%;
+        height: 90%;
+        max-height: 90vh;
+    }
+
+}
